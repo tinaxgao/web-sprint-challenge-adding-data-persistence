@@ -4,19 +4,17 @@ const Project = require("./model");
 router.get("/", (req, res, next) => {
   Project.getProjects()
     .then((r) => {
-      r.forEach((i) => {
-        if (i.project_completed === 0) {
-          i.project_completed = false;
-        } else {
-          i.project_completed = true;
-        }
-      });
-
       res.json(r);
     })
     .catch(next);
 });
 
-// r.project_completed === 0 r.project_completed=false
+router.post('/', (req, res, next) => {
+  Project.addProject(req.body)
+  .then((r) => {
+    res.json(r);
+  })
+  .catch(next)
+})
 
 module.exports = router;
