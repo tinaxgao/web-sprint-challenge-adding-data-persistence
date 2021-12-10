@@ -1,11 +1,7 @@
-// const db = require("../../data/db-config");
+const db = require("../../data/dbConfig");
 
 async function getTasks() {
-    return Promise.resolve("get tasks");
-  
-  //   const rows = await db("projects as p");
-  
-  //   return rows;
+  return db("tasks as t");
   }
   
   module.exports = { getTasks }

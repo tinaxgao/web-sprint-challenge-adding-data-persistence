@@ -1,12 +1,15 @@
-// const db = require("../../data/db-config");
+const db = require("../../data/dbConfig");
 
-async function getResources() {
-    return Promise.resolve("get resources");
-  
+function getResources() {
+  return db("resources as r");
+}
+
+async function postResources() {
+  return Promise.resolve("post resources");
+
   //   const rows = await db("projects as p");
-  
+
   //   return rows;
-  }
-  
-  module.exports = { getResources }
-  
+}
+
+module.exports = { getResources, postResources };

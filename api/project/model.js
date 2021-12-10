@@ -1,10 +1,7 @@
-// const db = require("../../data/db-config");
+const db = require("../../data/dbConfig");
 
 async function getProjects() {
-   return Promise.resolve(`get projects sdfsdfdf`);
-
-//   const rows = await db("projects as p");
-//   return rows;
+   return db("projects as p");
 }
 
 module.exports = { getProjects }
