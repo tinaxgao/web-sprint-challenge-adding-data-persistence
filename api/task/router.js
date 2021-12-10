@@ -9,7 +9,13 @@ router.get("/", (req, res, next) => {
     .catch(next);
 });
 
-
+router.post('/', (req, res, next) => {
+  Task.addTask(req.body)
+  .then((r) => {
+    res.json(r);
+  })
+  .catch(next)
+})
 
 
 
