@@ -4,8 +4,8 @@ function getResources() {
   return db("resources");
 }
 
-function getResourceById(id) {
-  return db('resources').where('resource_id', id).first()
+async function getResourceById(id) {
+  return await db('resources').where('resource_id', id).first()
 }
 
 async function addResource(resource) {
