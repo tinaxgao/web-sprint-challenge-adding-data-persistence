@@ -1,15 +1,16 @@
 const db = require("../../data/dbConfig");
 
 function getResources() {
-  return db("resources as r");
+  return db("resources");
 }
 
-async function postResources() {
-  return Promise.resolve("post resources");
-
-  //   const rows = await db("projects as p");
-
-  //   return rows;
+function getResourceById(id) {
+  return db('resources').where('resource_id', id).first()
 }
 
-module.exports = { getResources, postResources };
+async function addResource(resource) {
+  return await db('resources').insert(resource)
+  .then(([id]) => {return getResourceById(id)})
+}
+
+module.exports = { getResources, addResource };
