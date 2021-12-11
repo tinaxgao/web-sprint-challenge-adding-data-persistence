@@ -25,7 +25,7 @@ async function getTasksById(id) {
     .join("projects", "projects.project_id", "tasks.project_id")
     .where("task_id", id).first();
 
-  t.task_completed === 0
+  t.task_completed == 0
     ? (t.task_completed = false)
     : (t.task_completed = true);
 

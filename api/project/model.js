@@ -16,7 +16,7 @@ async function getProjects() {
 async function getProjectsById(id) {
   const p = await db("projects").where("project_id", id).first();
 
-  p.project_completed === 0
+  p.project_completed == 0
     ? (p.project_completed = false)
     : (p.project_completed = true);
 
