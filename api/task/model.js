@@ -7,14 +7,15 @@ async function getTasks() {
     "tasks.project_id"
   );
 
-  const tasks = t.map((i) => {
-    if (i.task_completed === 0) {
-      i.task_completed = false;
-    } else {
-      i.task_completed = true;
-    }
-    return i;
-  });
+  const tasks = t.map((i) => ({
+    task_id: i.task_id,
+    task_completed: !!i.task_completed,
+    task_description: i.task_description,
+    task_notes: i.task_notes,
+    project_id: i.project_id,
+    project_name: i.project_name,
+    project_description: i.project_description
+  }));
 
   return tasks;
 }
